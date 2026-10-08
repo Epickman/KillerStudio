@@ -6,8 +6,9 @@ import { X, Minus, Plus, Trash2, MessageCircle } from 'lucide-react'
 import { useCartStore } from '@/lib/cartStore'
 import { getWhatsAppUrl } from '@/lib/whatsapp'
 import { urlForImage } from '@/sanity/image'
+import type { SanityImageSource } from '@/types'
 
-function resolveImage(mainImage: any): string | null {
+function resolveImage(mainImage: SanityImageSource | string | undefined): string | null {
   if (!mainImage) return null
   if (typeof mainImage === 'string') return mainImage
   try { return urlForImage(mainImage).width(80).height(80).url() } catch { return null }

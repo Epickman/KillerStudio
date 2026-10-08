@@ -51,7 +51,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
             <div className="space-y-3">
               <div className="aspect-square bg-ksf-surface border border-ksf-border overflow-hidden">
-                {product.mainImage ? (
+                {typeof product.mainImage === 'string' && product.mainImage ? (
                   <Image src={product.mainImage} alt={product.name} width={600} height={600} className="w-full h-full object-cover" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-ksf-muted to-ksf-surface">

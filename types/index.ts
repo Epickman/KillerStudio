@@ -1,3 +1,9 @@
+export type SanityImageSource = {
+  _type: string
+  asset?: { _ref: string; _type: string }
+  [key: string]: unknown
+}
+
 export interface Product {
   _id: string
   name: string
@@ -5,9 +11,9 @@ export interface Product {
   price: number
   previousPrice?: number
   shortDescription?: string
-  description?: any[]
-  mainImage?: any
-  gallery?: any[]
+  description?: unknown[]
+  mainImage?: SanityImageSource | string
+  gallery?: (SanityImageSource | string)[]
   sku?: string
   stock?: number
   variants?: Array<{ name: string; options: string[] }>
@@ -17,8 +23,8 @@ export interface Product {
   isOnSale?: boolean
   category?: Category
   relatedProducts?: Product[]
-  howToUse?: any[]
-  technicalInfo?: any[]
+  howToUse?: unknown[]
+  technicalInfo?: unknown[]
   brand?: string
 }
 
@@ -26,7 +32,7 @@ export interface Category {
   _id?: string
   name: string
   slug: { current: string }
-  image?: any
+  image?: SanityImageSource | string
   description?: string
 }
 
@@ -36,7 +42,7 @@ export interface Collection {
   slug: { current: string }
   description?: string
   products?: Product[]
-  image?: any
+  image?: SanityImageSource | string
 }
 
 export interface CartItem {
@@ -44,7 +50,7 @@ export interface CartItem {
   name: string
   slug: { current: string }
   price: number
-  mainImage?: any
+  mainImage?: SanityImageSource | string
   quantity: number
   selectedVariants?: Record<string, string>
 }
