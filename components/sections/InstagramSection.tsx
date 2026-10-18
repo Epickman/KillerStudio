@@ -1,9 +1,16 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
 import { INSTAGRAM_URL } from '@/lib/config'
+import { client } from '@/sanity/client'
+import { instagramPostsQuery } from '@/sanity/queries'
+import { urlForImage } from '@/sanity/image'
+import type { SanityImageSource } from '@/types'
 
-export function InstagramSection() {
-  const placeholders = Array.from({ length: 6 }, (_, i) => i + 1)
+type InstagramPost = { _id: string; image: SanityImageSource; link?: string }
+
+export async function InstagramSection() {
+  const posts: InstagramPost[] = await client.fetch(instagramPostsQuery)
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -22,7 +29,27 @@ export function InstagramSection() {
       </div>
 
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-        {placeholders.map(i => (
+        {posts.length > 0 ? posts.map(post => {
+          const imgUrl = urlForImage(post.image).width(400).height(400).url()
+          const href = post.link || INSTAGRAM_URL
+          return (
+            <Link
+              key={post._id}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group aspect-square bg-ksf-surface border border-ksf-border overflow-hidden hover:border-ksf-accent/50 transition-colors"
+            >
+              <Image
+                src={imgUrl}
+                alt="Post de Instagram"
+                width={400}
+                height={400}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
+          )
+        }) : Array.from({ length: 6 }, (_, i) => (
           <Link
             key={i}
             href={INSTAGRAM_URL}

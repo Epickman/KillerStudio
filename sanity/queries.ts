@@ -44,6 +44,12 @@ export const onSaleProductsQuery = groq`
   }
 `
 
+export const instagramPostsQuery = groq`
+  *[_type == "instagramPost"] | order(order asc) {
+    _id, image, link
+  }
+`
+
 export const collectionBySlugQuery = groq`
   *[_type == "collection" && slug.current == $slug][0] {
     _id, name, description,
