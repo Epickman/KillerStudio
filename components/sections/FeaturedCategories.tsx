@@ -1,8 +1,11 @@
 import Link from 'next/link'
-import { demoCategories } from '@/lib/demoData'
+import { client } from '@/sanity/client'
+import { allCategoriesQuery } from '@/sanity/queries'
 
-export function FeaturedCategories() {
-  const categories = demoCategories.slice(0, 6)
+type Category = { _id: string; name: string; slug: { current: string }; image?: unknown; description?: string }
+
+export async function FeaturedCategories() {
+  const categories: Category[] = await client.fetch(allCategoriesQuery)
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
