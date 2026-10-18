@@ -37,6 +37,13 @@ export const allCategoriesQuery = groq`
   *[_type == "category"] { _id, name, slug, image, description }
 `
 
+export const onSaleProductsQuery = groq`
+  *[_type == "product" && isOnSale == true][0...8] {
+    _id, name, slug, price, previousPrice, shortDescription,
+    mainImage, isFeatured, isNew, isOnSale, stock
+  }
+`
+
 export const collectionBySlugQuery = groq`
   *[_type == "collection" && slug.current == $slug][0] {
     _id, name, description,

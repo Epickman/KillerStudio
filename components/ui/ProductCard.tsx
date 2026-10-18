@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { ShoppingBag, Eye } from 'lucide-react'
 import { Product } from '@/types'
 import { useCartStore } from '@/lib/cartStore'
+import { urlForImage } from '@/sanity/image'
 
 interface ProductCardProps {
   product: Product
@@ -28,8 +29,10 @@ export function ProductCard({ product }: ProductCardProps) {
     })
   }
 
-  const imageUrl = typeof product.mainImage === 'string'
-    ? product.mainImage
+  const imageUrl = product.mainImage
+    ? typeof product.mainImage === 'string'
+      ? product.mainImage
+      : urlForImage(product.mainImage).width(400).height(400).url()
     : `https://picsum.photos/seed/${product._id}/400/400`
 
   return (

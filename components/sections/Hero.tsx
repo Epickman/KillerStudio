@@ -1,5 +1,8 @@
 'use client'
 import Link from 'next/link'
+import { FilmStrip } from '@/components/ui/FilmStrip'
+import { ProjectionEffect } from '@/components/ui/ProjectionEffect'
+import { FilmFlicker } from '@/components/ui/FilmFlicker'
 
 export function Hero() {
   return (
@@ -13,30 +16,20 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(13,10,18,0.9))]" />
       </div>
 
-      {/* Film counter — superior izquierda */}
-      <div className="absolute top-28 left-12 sm:left-16 z-20 hidden sm:flex flex-col gap-1.5">
-        <span className="font-mono text-[11px] text-ksf-accent tracking-widest" style={{ textShadow: '0 0 10px rgba(232,23,122,0.5)' }}>
-          KILLER.STUDIO.FX
-        </span>
-        <span className="font-mono text-[11px] text-ksf-secondary tracking-widest">
-          REEL 001 — FRAME 0001
-        </span>
-        <div className="flex gap-1 mt-1">
-          {[...Array(10)].map((_, i) => (
-            <div key={i} className="w-2 h-1.5 border border-ksf-accent/50 bg-ksf-accent/10" />
-          ))}
-        </div>
-      </div>
+      {/* Proyección vintage */}
+      <ProjectionEffect />
 
-      {/* Badge SFX — superior derecha */}
-      <div className="absolute top-28 right-12 sm:right-16 z-20 hidden sm:flex flex-col items-end gap-1.5">
-        <span className="font-mono text-[11px] text-ksf-secondary tracking-widest">PRO GRADE</span>
-        <div className="border border-ksf-accent/60 px-3 py-1 bg-ksf-accent/10">
-          <span className="font-mono text-[11px] text-ksf-accent tracking-widest" style={{ textShadow: '0 0 8px rgba(232,23,122,0.5)' }}>
-            SFX ✦
-          </span>
-        </div>
-      </div>
+      {/* Parpadeo — solo entre las dos cintas */}
+      <FilmFlicker
+        className="left-0 right-0"
+        style={{ top: 220, bottom: 124 }}
+      />
+
+      {/* Cintas de película — debajo del header y en el fondo */}
+      <FilmStrip direction="left" className="top-24" />
+      <FilmStrip direction="left" className="bottom-0" />
+
+
 
       {/* Contenido central */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 pb-8 pt-0">
@@ -44,7 +37,8 @@ export function Hero() {
 
           {/* Columna izquierda — título */}
           <div className="text-center lg:text-left">
-            <p className="font-body text-ksf-accent text-[10px] tracking-[0.5em] uppercase mb-5 flicker">
+
+<p className="font-body text-ksf-accent text-[10px] tracking-[0.5em] uppercase mb-5 flicker">
               ✦ Special Effects Makeup ✦
             </p>
 

@@ -23,9 +23,8 @@ export function Navbar() {
 
   const navLinks = [
     { href: '/shop', label: 'Shop' },
-    { href: '/shop?category=kits-sets', label: 'Kits' },
-    { href: '/shop?collection=new-drop', label: 'New Drop' },
     { href: '/portfolio', label: 'Portfolio' },
+    { href: '/contacto', label: 'Contacto' },
   ]
 
   return (
