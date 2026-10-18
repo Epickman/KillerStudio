@@ -14,8 +14,6 @@ const skills = [
 const stats = [
   { value: '200+', label: 'Producciones' },
   { value: '15', label: 'Años de exp.' },
-  { value: '15+', label: 'Premios' },
-  { value: '3', label: 'Países' },
 ]
 
 export function AboutSection() {
@@ -83,7 +81,7 @@ export function AboutSection() {
             <div className="space-y-4 font-body text-ksf-secondary text-sm sm:text-base leading-relaxed mb-8">
               <p>
                 Soy maquilladora especializada en efectos especiales (FX) con más de 15 años
-                transformando rostros para producciones cinematográficas, series, teatro y fotografía.
+                de experiencia en producciones cinematográficas, series, teatro y fotografía.
               </p>
               <p>
                 Mi trabajo combina técnicas clásicas de Hollywood con materiales de última generación:
