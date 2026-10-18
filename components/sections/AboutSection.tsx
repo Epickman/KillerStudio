@@ -4,7 +4,7 @@ import { MessageCircle } from 'lucide-react'
 import { WHATSAPP_NUMBER } from '@/lib/config'
 
 const skills = [
-  { label: 'Maquillaje FX / Gore', years: '8+' },
+  { label: 'Maquillaje FX / Gore', years: '15+' },
   { label: 'Prótesis en espuma y silicona', years: '6+' },
   { label: 'Maquillaje de envejecimiento', years: '5+' },
   { label: 'Dirección de arte', years: '4+' },
@@ -13,7 +13,7 @@ const skills = [
 
 const stats = [
   { value: '200+', label: 'Producciones' },
-  { value: '8', label: 'Años de exp.' },
+  { value: '15', label: 'Años de exp.' },
   { value: '15+', label: 'Premios' },
   { value: '3', label: 'Países' },
 ]
@@ -82,7 +82,7 @@ export function AboutSection() {
 
             <div className="space-y-4 font-body text-ksf-secondary text-sm sm:text-base leading-relaxed mb-8">
               <p>
-                Soy maquilladora especializada en efectos especiales (FX) con más de 8 años
+                Soy maquilladora especializada en efectos especiales (FX) con más de 15 años
                 transformando rostros para producciones cinematográficas, series, teatro y fotografía.
               </p>
               <p>

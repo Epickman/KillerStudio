@@ -87,7 +87,7 @@ export function Hero() {
             <div className="grid grid-cols-3 gap-4 w-full border-t border-ksf-border pt-6">
               {[
                 { v: '200+', l: 'Producciones' },
-                { v: '8 años', l: 'Experiencia' },
+                { v: '15 años', l: 'Experiencia' },
                 { v: '100%', l: 'Pro Grade' },
               ].map(s => (
                 <div key={s.l} className="text-center lg:text-left">
