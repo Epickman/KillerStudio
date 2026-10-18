@@ -6,8 +6,8 @@ import { FilmFlicker } from '@/components/ui/FilmFlicker'
 
 export function Hero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-ksf-bg grain isolate"
-      style={{ minHeight: '100vh', paddingTop: '6rem', paddingBottom: '2rem' }}
+    <section className="relative flex items-center justify-center overflow-hidden bg-ksf-bg grain isolate pt-52 pb-36 sm:pt-24 sm:pb-8"
+      style={{ minHeight: '100vh' }}
     >
       {/* Fondo */}
       <div className="absolute inset-0 -z-10">
