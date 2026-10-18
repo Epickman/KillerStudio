@@ -26,8 +26,8 @@ export function Hero() {
       />
 
       {/* Cintas de película — debajo del header y en el fondo */}
-      <FilmStrip direction="left" className="top-24" />
-      <FilmStrip direction="left" className="bottom-0" />
+      <FilmStrip direction="left" className="top-24 scale-75 sm:scale-100 origin-top" />
+      <FilmStrip direction="left" className="bottom-0 scale-75 sm:scale-100 origin-bottom" />
 
 
 
