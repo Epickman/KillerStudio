@@ -46,8 +46,8 @@ export function AboutSection() {
             <div className="relative aspect-[3/4] overflow-hidden border border-ksf-border horror-img">
               {/* Placeholder de foto — reemplazar con foto real */}
               <div
-                className="w-full h-full bg-cover bg-center scanlines"
-                style={{ backgroundImage: 'url(https://picsum.photos/seed/artist-ksf/500/700)' }}
+                className="w-full h-full bg-cover scanlines"
+                style={{ backgroundImage: 'url(/vieja.jfif)', backgroundPosition: 'center 15%' }}
               />
               {/* Vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-ksf-surface/80 via-transparent to-transparent" />
