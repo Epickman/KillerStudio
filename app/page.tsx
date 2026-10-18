@@ -13,7 +13,6 @@ import { ShopByEffect } from '@/components/sections/ShopByEffect'
 import { AboutSection } from '@/components/sections/AboutSection'
 import { PortfolioSection } from '@/components/sections/Portfolio'
 import { InstagramSection } from '@/components/sections/InstagramSection'
-import { Newsletter } from '@/components/sections/Newsletter'
 import { Footer } from '@/components/sections/Footer'
 
 export const revalidate = 60
@@ -52,7 +51,6 @@ export default async function HomePage() {
       <AboutSection />
       <PortfolioSection />
       <InstagramSection />
-      <Newsletter />
       <Footer />
     </>
   )
