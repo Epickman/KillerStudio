@@ -55,7 +55,7 @@ function ShopContentInner({ products, categories }: Props) {
             <p className="text-ksf-accent text-xs tracking-[0.3em] uppercase mb-4 font-body">Catálogo</p>
             <h1 className="font-display text-white text-5xl sm:text-7xl tracking-wider mb-6">SHOP FX</h1>
             <p className="font-body text-white/70 text-sm leading-relaxed max-w-md">
-              Maquillaje de efectos especiales profesional. Pinturas, prótesis, látex y todo lo que necesitás para tu próximo trabajo.
+              Maquillaje de efectos especiales profesional. Prótesis, látex y todo lo que necesitás para tu próximo trabajo.
             </p>
           </div>
         </div>
