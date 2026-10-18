@@ -25,7 +25,7 @@ export const newProductsQuery = groq`
 export const productBySlugQuery = groq`
   *[_type == "product" && slug.current == $slug][0] {
     _id, name, slug, price, previousPrice, description,
-    shortDescription, mainImage, gallery, sku, stock,
+    shortDescription, mainImage, "gallery": gallery[]{...}, sku, stock,
     variants, tags, isFeatured, isNew, isOnSale,
     howToUse, technicalInfo, brand,
     category->{ name, slug },

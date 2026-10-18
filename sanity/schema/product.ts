@@ -11,6 +11,7 @@ export const productSchema = defineType({
     defineField({ name: 'previousPrice', title: 'Precio anterior (oferta)', type: 'number' }),
     defineField({ name: 'shortDescription', title: 'Descripción corta', type: 'text', rows: 3 }),
     defineField({ name: 'mainImage', title: 'Imagen principal', type: 'image', options: { hotspot: true }, validation: Rule => Rule.required() }),
+    defineField({ name: 'gallery', title: 'Galería de imágenes', type: 'array', of: [{ type: 'image', options: { hotspot: true } }] }),
     defineField({ name: 'category', title: 'Categoría', type: 'reference', to: [{ type: 'category' }] }),
     defineField({ name: 'stock', title: 'Stock', type: 'number', initialValue: 0 }),
     defineField({ name: 'isFeatured', title: 'Destacado', type: 'boolean', initialValue: false }),

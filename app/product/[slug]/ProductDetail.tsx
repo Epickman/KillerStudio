@@ -13,6 +13,7 @@ export function ProductDetail({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1)
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({})
   const [activeTab, setActiveTab] = useState<'description' | 'howTo' | 'techInfo'>('description')
+  const [activeImage, setActiveImage] = useState(0)
   const addItem = useCartStore(state => state.addItem)
 
   const handleAddToCart = () => {
@@ -27,11 +28,18 @@ export function ProductDetail({ product }: { product: Product }) {
     })
   }
 
-  const imageUrl = product.mainImage
-    ? typeof product.mainImage === 'string'
-      ? product.mainImage
-      : urlForImage(product.mainImage).width(800).height(800).url()
-    : null
+  const getImageUrl = (img: unknown, w = 800, h = 800) => {
+    if (!img) return null
+    if (typeof img === 'string') return img
+    return urlForImage(img as Parameters<typeof urlForImage>[0]).width(w).height(h).url()
+  }
+
+  const allImages = [
+    product.mainImage,
+    ...(product.gallery ?? []),
+  ].filter(Boolean)
+
+  const activeImageUrl = getImageUrl(allImages[activeImage])
 
   const discount = product.previousPrice
     ? Math.round((1 - product.price / product.previousPrice) * 100)
@@ -53,15 +61,36 @@ export function ProductDetail({ product }: { product: Product }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
 
             <div className="space-y-3">
+              {/* Imagen principal */}
               <div className="aspect-square bg-ksf-surface border border-ksf-border overflow-hidden">
-                {imageUrl ? (
-                  <Image src={imageUrl} alt={product.name} width={800} height={800} className="w-full h-full object-cover" />
+                {activeImageUrl ? (
+                  <Image src={activeImageUrl} alt={product.name} width={800} height={800} className="w-full h-full object-cover transition-all duration-300" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-ksf-muted to-ksf-surface">
                     <span className="text-ksf-secondary text-2xl tracking-widest uppercase font-bold">FX</span>
                   </div>
                 )}
               </div>
+
+              {/* Thumbnails */}
+              {allImages.length > 1 && (
+                <div className="flex gap-2 overflow-x-auto pb-1">
+                  {allImages.map((img, i) => {
+                    const thumb = getImageUrl(img, 200, 200)
+                    return thumb ? (
+                      <button
+                        key={i}
+                        onClick={() => setActiveImage(i)}
+                        className={`flex-shrink-0 w-16 h-16 border overflow-hidden transition-all ${
+                          activeImage === i ? 'border-ksf-accent' : 'border-ksf-border opacity-60 hover:opacity-100'
+                        }`}
+                      >
+                        <Image src={thumb} alt={`${product.name} ${i + 1}`} width={200} height={200} className="w-full h-full object-cover" />
+                      </button>
+                    ) : null
+                  })}
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col">
