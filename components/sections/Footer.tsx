@@ -59,7 +59,6 @@ export function Footer() {
                   <Link
                     href={link.href}
                     className="font-body text-ksf-secondary hover:text-ksf-accent text-sm transition-colors"
-                    {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   >
                     {link.label}
                   </Link>
