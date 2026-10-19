@@ -4,7 +4,7 @@ import { portfolioProjects, PortfolioProject } from '@/lib/portfolioData'
 
 const categories = ['Todos', 'Cine', 'Teatro', 'Fotografía', 'Publicidad']
 
-export function PortfolioSection() {
+export function PortfolioSection({ hideHeader = false }: { hideHeader?: boolean }) {
   const [activeCategory, setActiveCategory] = useState('Todos')
 
   const filtered = activeCategory === 'Todos'
@@ -13,13 +13,15 @@ export function PortfolioSection() {
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="mb-12">
-        <p className="font-body text-ksf-accent text-xs tracking-[0.4em] uppercase mb-3">Trabajos realizados</p>
-        <h2 className="font-display text-ksf-text text-4xl sm:text-6xl tracking-wider mb-6">PORTFOLIO</h2>
-        <p className="font-body text-ksf-secondary text-sm leading-relaxed max-w-xl">
-          Proyectos de maquillaje FX para cine, teatro, fotografía y publicidad.
-        </p>
-      </div>
+      {!hideHeader && (
+        <div className="mb-12">
+          <p className="font-body text-ksf-accent text-xs tracking-[0.4em] uppercase mb-3">Trabajos realizados</p>
+          <h2 className="font-display text-ksf-text text-4xl sm:text-6xl tracking-wider mb-6">PORTFOLIO</h2>
+          <p className="font-body text-ksf-secondary text-sm leading-relaxed max-w-xl">
+            Proyectos de maquillaje FX para cine, teatro, fotografía y publicidad.
+          </p>
+        </div>
+      )}
 
       {/* Filtros */}
       <div className="flex gap-2 flex-wrap mb-10">

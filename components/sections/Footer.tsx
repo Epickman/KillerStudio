@@ -53,7 +53,7 @@ export function Footer() {
                 { href: '#', label: 'Envíos' },
                 { href: '#', label: 'Devoluciones' },
                 { href: '#', label: 'Preguntas frecuentes' },
-                { href: `https://wa.me/${WHATSAPP_NUMBER}`, label: 'Contacto', external: true },
+                { href: '/contacto', label: 'Contacto' },
               ].map((link, i) => (
                 <li key={i}>
                   <Link

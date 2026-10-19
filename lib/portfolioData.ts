@@ -10,6 +10,24 @@ export interface PortfolioProject {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: 'hotline',
+    title: 'Hotline',
+    category: 'Cine',
+    description: 'Efectista de maquillaje FX para largometraje.',
+    image: '/hotline.jpg',
+    tags: ['Efectos Especiales', 'Cine', 'FX'],
+    year: '2025',
+  },
+  {
+    id: 'rockstar',
+    title: 'Rockstar',
+    category: 'Publicidad',
+    description: 'Maquillaje FX para publicidad.',
+    image: '/rockstar.jpeg',
+    tags: ['Efectos Especiales', 'Publicidad', 'FX'],
+    year: '2023',
+  },
+  {
     id: 'proj-1',
     title: 'Zombie Apocalypse',
     category: 'Cine',

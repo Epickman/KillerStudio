@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { client } from '@/sanity/client'
 import { allCategoriesQuery } from '@/sanity/queries'
+import { urlForImage } from '@/sanity/image'
 
 type Category = { _id: string; name: string; slug: { current: string }; image?: unknown; description?: string }
 
@@ -20,38 +21,49 @@ export async function FeaturedCategories() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        {categories.map((cat, i) => (
-          <Link
-            key={cat._id}
-            href={`/shop?category=${cat.slug.current}`}
-            className="group relative aspect-[3/4] bg-ksf-surface border border-ksf-border overflow-hidden hover:border-ksf-accent/60 transition-all duration-300 grain isolate"
-          >
-            {/* Fondo degradado único por categoría */}
-            <div
-              className="absolute inset-0 transition-opacity duration-300"
-              style={{
-                background: `radial-gradient(ellipse at 50% 80%, rgba(232,23,122,${0.06 + i * 0.03}), transparent 70%)`,
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ksf-bg/90 via-ksf-surface/40 to-transparent group-hover:from-ksf-accent/20 transition-colors duration-300" />
+        {categories.map((cat, i) => {
+          const imageUrl = cat.image ? urlForImage(cat.image).width(400).height(530).url() : null
 
-            {/* Número decorativo */}
-            <div
-              className="absolute top-2 right-3 font-display text-[3rem] leading-none select-none opacity-5 group-hover:opacity-10 transition-opacity"
-              style={{ color: '#e8177a' }}
+          return (
+            <Link
+              key={cat._id}
+              href={`/shop?category=${cat.slug.current}`}
+              className="group relative aspect-[3/4] bg-ksf-surface border border-ksf-border overflow-hidden hover:border-ksf-accent/60 transition-all duration-300 grain isolate"
             >
-              {String(i + 1).padStart(2, '0')}
-            </div>
+              {/* Imagen de la categoría */}
+              {imageUrl && (
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${imageUrl})` }}
+                />
+              )}
 
-            <div className="absolute inset-0 flex flex-col items-center justify-end p-4">
-              {/* Línea decorativa */}
-              <div className="w-6 h-px bg-ksf-accent/40 mb-3 group-hover:w-10 transition-all duration-300" />
-              <p className="font-body text-ksf-text text-[11px] tracking-widest uppercase text-center font-medium leading-tight group-hover:text-ksf-accent transition-colors duration-300">
-                {cat.name}
-              </p>
-            </div>
-          </Link>
-        ))}
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+              {!imageUrl && (
+                <div
+                  className="absolute inset-0"
+                  style={{ background: `radial-gradient(ellipse at 50% 80%, rgba(232,23,122,${0.06 + i * 0.03}), transparent 70%)` }}
+                />
+              )}
+
+              {/* Número decorativo */}
+              <div
+                className="absolute top-2 right-3 font-display text-[3rem] leading-none select-none opacity-5 group-hover:opacity-10 transition-opacity"
+                style={{ color: '#e8177a' }}
+              >
+                {String(i + 1).padStart(2, '0')}
+              </div>
+
+              <div className="absolute inset-0 flex flex-col items-center justify-end p-4">
+                <div className="w-6 h-px bg-ksf-accent/40 mb-3 group-hover:w-10 transition-all duration-300" />
+                <p className="font-body text-white text-[11px] tracking-widest uppercase text-center font-medium leading-tight group-hover:text-ksf-accent transition-colors duration-300">
+                  {cat.name}
+                </p>
+              </div>
+            </Link>
+          )
+        })}
       </div>
     </section>
   )

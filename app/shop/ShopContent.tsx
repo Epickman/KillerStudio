@@ -49,7 +49,7 @@ function ShopContentInner({ products, categories }: Props) {
     <>
       <div className="min-h-screen">
         <div className="relative border-b border-ksf-border overflow-hidden min-h-[500px] flex items-center">
-          <Image src="/shop-hero.jpg" alt="Shop hero" fill className="object-cover object-center" priority />
+          <Image src="/shop-hero.jpg" alt="Shop hero" fill className="object-cover object-center scale-x-[-1]" priority />
           <div className="absolute inset-0 bg-ksf-bg/70" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
             <p className="text-ksf-accent text-xs tracking-[0.3em] uppercase mb-4 font-body">Catálogo</p>

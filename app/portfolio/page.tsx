@@ -31,7 +31,7 @@ export default function PortfolioPage() {
           </div>
         </div>
 
-        <PortfolioSection />
+        <PortfolioSection hideHeader />
       </div>
       <Footer />
     </>

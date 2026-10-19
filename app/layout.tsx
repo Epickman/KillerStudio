@@ -21,10 +21,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://killerstudiofx.com'),
   title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
-  icons: {
-    icon: '/logo.jpg',
-    apple: '/logo.jpg',
-  },
   openGraph: {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
