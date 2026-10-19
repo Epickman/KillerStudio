@@ -6,7 +6,6 @@ import {
   allProductsQuery,
 } from '@/sanity/queries'
 import { Hero } from '@/components/sections/Hero'
-import { FeaturedCategories } from '@/components/sections/FeaturedCategories'
 import { ProductCarousel } from '@/components/sections/ProductCarousel'
 import { ProductGrid } from '@/components/sections/ProductGrid'
 import { ProductBanner } from '@/components/sections/ProductBanner'
