@@ -18,6 +18,7 @@ const barlow = Barlow({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://killerstudiofx.com'),
   title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
   icons: {
@@ -28,6 +29,16 @@ export const metadata: Metadata = {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     type: 'website',
+    url: 'https://killerstudiofx.com',
+    siteName: SITE_NAME,
+    locale: 'es_AR',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  verification: {
+    google: '3TPvL_FUJHVruiY_RW43RGvMtoUB_K07gyNIXit8JOs',
   },
 }
 
