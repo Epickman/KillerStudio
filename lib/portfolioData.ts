@@ -3,9 +3,11 @@ export interface PortfolioProject {
   title: string
   category: string
   description: string
+  longDescription?: string
   image: string
   tags: string[]
   year: string
+  trailer?: string
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -26,6 +28,15 @@ export const portfolioProjects: PortfolioProject[] = [
     image: '/rockstar.jpeg',
     tags: ['Efectos Especiales', 'Publicidad', 'FX'],
     year: '2023',
+  },
+  {
+    id: 'ultimozombie',
+    title: 'El Último Zombie',
+    category: 'Cine',
+    description: 'Maquillaje FX y prótesis para largometraje de terror.',
+    image: '/ultimozombie.jfif',
+    tags: ['Zombie', 'Prótesis', 'Cine', 'Terror'],
+    year: '2025',
   },
   {
     id: 'proj-1',
