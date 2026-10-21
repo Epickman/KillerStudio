@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { PortfolioSection } from '@/components/sections/Portfolio'
 import { Footer } from '@/components/sections/Footer'
 import type { Metadata } from 'next'
@@ -22,6 +23,12 @@ export default function PortfolioPage() {
           />
           <div className="absolute inset-0 bg-ksf-bg/70" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 font-body text-white/60 hover:text-ksf-accent text-xs tracking-widest uppercase transition-colors mb-8"
+            >
+              ← Inicio
+            </Link>
             <p className="font-body text-ksf-accent text-xs tracking-[0.4em] uppercase mb-4">Killer Studio FX</p>
             <h1 className="font-display text-white text-5xl sm:text-7xl tracking-wider mb-6">PORTFOLIO</h1>
             <p className="font-body text-white/70 text-sm max-w-lg leading-relaxed">

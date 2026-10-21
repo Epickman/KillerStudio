@@ -76,19 +76,19 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        <div className="p-4">
-          <p className="font-body text-ksf-secondary text-[10px] tracking-widest uppercase mb-1">
+        <div className="p-6">
+          <p className="font-body text-ksf-secondary text-xs tracking-widest uppercase mb-2">
             {product.category?.name || 'FX'}
           </p>
-          <h3 className="font-body text-ksf-text text-sm font-medium tracking-wide mb-2 line-clamp-1">
+          <h3 className="font-body text-ksf-text text-base font-medium tracking-wide mb-3 line-clamp-1">
             {product.name}
           </h3>
-          <div className="flex items-center gap-2">
-            <span className="font-body text-ksf-accent font-semibold text-sm">
+          <div className="flex items-center gap-3">
+            <span className="font-body text-ksf-accent font-semibold text-base">
               ${product.price.toLocaleString('es-AR')}
             </span>
             {product.previousPrice && (
-              <span className="font-body text-ksf-secondary text-xs line-through">
+              <span className="font-body text-ksf-secondary text-sm line-through">
                 ${product.previousPrice.toLocaleString('es-AR')}
               </span>
             )}

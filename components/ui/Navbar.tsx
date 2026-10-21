@@ -22,6 +22,7 @@ export function Navbar() {
   const count = mounted ? itemCount() : 0
 
   const navLinks = [
+    { href: '/', label: 'Inicio' },
     { href: '/shop', label: 'Shop' },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/contacto', label: 'Contacto' },

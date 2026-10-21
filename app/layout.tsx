@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`${bebasNeue.variable} ${barlow.variable} font-body bg-ksf-bg text-ksf-text antialiased`}>
+      <body className={`${bebasNeue.variable} ${barlow.variable} font-body bg-ksf-bg text-ksf-text antialiased select-none`}>
         <Navbar />
         <main className="pt-0">
           {children}

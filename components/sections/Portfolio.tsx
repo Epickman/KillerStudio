@@ -54,7 +54,8 @@ export function PortfolioSection({ hideHeader = false }: { hideHeader?: boolean 
         ))}
       </div>
 
-      {selected && (
+
+{selected && (
         <ProjectModal project={selected} onClose={() => setSelected(null)} />
       )}
     </section>
@@ -143,10 +144,13 @@ function ProjectModal({ project, onClose }: { project: PortfolioProject; onClose
 
         {/* Cuerpo: imagen + info */}
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div
-            className="min-h-[280px] md:min-h-[420px] bg-cover bg-center"
-            style={{ backgroundImage: `url(${project.image})` }}
-          />
+          <div className="bg-ksf-bg flex items-center justify-center md:min-h-[420px]">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full max-h-[420px] object-contain"
+            />
+          </div>
 
           <div className="p-6 sm:p-8 flex flex-col gap-4">
             <h2 className="font-display text-ksf-text text-3xl sm:text-4xl tracking-wide leading-tight">

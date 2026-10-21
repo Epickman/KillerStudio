@@ -10,7 +10,6 @@ import { ProductCarousel } from '@/components/sections/ProductCarousel'
 import { ProductGrid } from '@/components/sections/ProductGrid'
 import { ProductBanner } from '@/components/sections/ProductBanner'
 import { InteractiveProductBanner } from '@/components/sections/InteractiveProductBanner'
-import { AboutSection } from '@/components/sections/AboutSection'
 import { PortfolioSection } from '@/components/sections/Portfolio'
 import { InstagramSection } from '@/components/sections/InstagramSection'
 import { Footer } from '@/components/sections/Footer'
@@ -50,7 +49,6 @@ export default async function HomePage() {
         <ProductBanner products={onSale} title="OFERTAS" accent />
       )}
 
-      <AboutSection />
       <PortfolioSection />
       <InstagramSection />
       <Footer />
